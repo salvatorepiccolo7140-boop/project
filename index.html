@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Salvatore Piccolo – Web Designer professionale specializzato in siti su misura per Ristoranti, Bar e Hotel con approccio analitico e sopralluoghi in loco.">
+    <title>Salvatore Piccolo – Web Designer</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXX');
+    </script>
+    
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* CONFIGURAZIONE TAILWIND PER UN ACCENTO PIÙ FORTE */
+        :root {
+            --color-primary: #FF5A5F; /* Tonalità più calda e accattivante */
+            --color-secondary: #0A1931;
+        }
+
+        .bg-primary { background-color: var(--color-primary); }
+        .text-primary { color: var(--color-primary); }
+        .hover\:bg-primary-dark:hover { background-color: #E0484D; }
+        
+        .bg-secondary { background-color: var(--color-secondary); }
+        .text-secondary { color: var(--color-secondary); }
+
+        /* Fade in al scroll (DINAMICO) */
+        .fade { 
+            opacity: 0; 
+            transform: translateY(30px); 
+            transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                        transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+        .fade.show { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        /* Ritardi per l'effetto dinamico */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+
+        /* Effetto Glow sui blocchi */
+        .card-glow { transition: box-shadow 0.3s ease-in-out; }
+        .card-glow:hover {
+            box-shadow: 0 0 30px rgba(255, 90, 95, 0.6);
+        }
+
+        /* Animazione digitazione */
+        .typing::after {
+            content: "";
+            border-right: 3px solid var(--color-primary);
+            margin-left: 2px;
+            animation: cursor 0.7s infinite step-end;
+        }
+        @keyframes cursor { 0%,50%{opacity:1;}51%,100%{opacity:0;} }
+
+        /* Stile aggiuntivo per il portfolio e simulazione di pagina */
+        .project-card { cursor: pointer; }
+        .page-content { display: none; }
+        .page-content.active { display: block; }
+        
+        /* Stile Carosello (placeholder) - migliorato per il responsive */
+        .carousel-container { overflow-x: scroll; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+        .carousel-item { flex-shrink: 0; }
+    </style>
+</head>
+<body class="bg-gray-50 text-secondary font-sans">
+
+    <a href="#contatti" class="fixed bottom-6 right-6 z-50 bg-primary hover:bg-primary-dark text-white font-bold p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.505A9.76 9.76 0 015 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+    </a>
+
+    <main id="main-site" class="page-content active">
+
+        <header id="header" class="fixed top-0 left-0 right-0 z-50 h-20 bg-white/70 backdrop-blur-md flex items-center justify-between px-8 lg:px-16 transition-all duration-500 shadow-lg">
+            
+            <h1 class="text-2xl font-extrabold text-primary">Salvatore Piccolo</h1>
+            
+            <nav class="hidden md:flex items-center gap-10 font-medium text-gray-700">
+                <a href="#servizi" class="hover:text-primary transition duration-300">Servizi</a>
+                <a href="#sopralluoghi" class="hover:text-primary transition duration-300">Metodo</a>
+                <a href="#tech-stack" class="hover:text-primary transition duration-300">Stack</a>
+                <a href="#obiettivi" class="hover:text-primary transition duration-300">Risultati</a>
+                
+                <a href="#contatti" class="bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg font-bold transition duration-300 shadow-md transform hover:scale-[1.05]">
+                    Contatto Veloce
+                </a>
+            </nav>
+        </header>
+
+        <section class="pt-40 pb-32 bg-secondary text-white text-center fade show relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(white, rgba(255, 255, 255, 0));"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <h2 class="text-6xl md:text-7xl font-black leading-tight">
+                    Il Web Designer che <span class="typing" id="typing"></span>
+                </h2>
+                <p class="mt-8 text-xl md:text-2xl max-w-4xl mx-auto font-light">
+                    Trasformo le tue idee in <strong>siti web moderni, landing page performanti e restyling su misura</strong> che convertono e lasciano il segno.
+                </p>
+                <a href="#contatti" class="mt-12 inline-block bg-primary hover:bg-primary-dark text-white px-16 py-6 rounded-full shadow-2xl shadow-primary/50 text-xl font-bold uppercase tracking-wider transition-all transform hover:scale-105">
+                    <span class="flex items-center justify-center">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        Parliamo del Tuo Progetto
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <section id="servizi" class="py-32 bg-white fade">
+            <div class="container mx-auto px-6 lg:px-16">
+                <h3 class="text-5xl font-extrabold text-center mb-20 text-secondary">✨ I Miei Servizi Chiave</h3>
+                <div class="grid md:grid-cols-3 gap-16">
+                    <div class="p-10 bg-white rounded-3xl shadow-xl border-t-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-2 fade text-center delay-1 card-glow">
+                        <div class="text-7xl mb-6">💻</div>
+                        <h4 class="text-3xl font-bold mb-4 text-secondary">Siti Aziendali Premium</h4>
+                        <p class="text-gray-600 leading-relaxed">Piattaforme professionali e veloci, ottimizzate per posizionarsi in alto su Google (SEO).</p>
+                    </div>
+                    <div class="p-10 bg-white rounded-3xl shadow-xl border-t-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-2 fade text-center delay-2 card-glow">
+                        <div class="text-7xl mb-6">📈</div>
+                        <h4 class="text-3xl font-bold mb-4 text-secondary">Landing Page ad Alta Conversione</h4>
+                        <p class="text-gray-600 leading-relaxed">Pagine progettate scientificamente per <strong>massimizzare i contatti</strong> con design persuasivo.</p>
+                    </div>
+                    <div class="p-10 bg-white rounded-3xl shadow-xl border-t-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-2 fade text-center delay-3 card-glow">
+                        <div class="text-7xl mb-6">🎨</div>
+                        <h4 class="text-3xl font-bold mb-4 text-secondary">Restyling Moderno & Reattivo</h4>
+                        <p class="text-gray-600 leading-relaxed">Rinnova il tuo sito datato, assicurando <strong>perfetta visualizzazione</strong> su tutti i dispositivi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sopralluoghi" class="py-32 bg-secondary text-white fade">
+            <div class="container mx-auto px-6 lg:px-16">
+                <h3 class="text-5xl font-extrabold text-center mb-20">Analisi Approfondita: Il Sopralluogo 🔍</h3>
+                <p class="text-xl text-center max-w-4xl mx-auto mb-16 opacity-90">
+                    Per i progetti che riguardano spazi fisici (Ristoranti, Bar, Hotel), inizio sempre con un sopralluogo in loco. Non progetto solo un sito, ma un'<strong>estensione digitale del tuo spazio</strong>.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-12 text-center">
+                    
+                    <div class="fade delay-1">
+                        <div class="text-7xl mb-6 inline-block text-primary font-extrabold">📍</div>
+                        <h4 class="text-3xl font-bold mb-4">Fase 1: Visione Fisica</h4>
+                        <p class="opacity-80">Osservo l'atmosfera, i materiali e la luce del tuo locale. Questo garantisce che il design digitale sia in perfetta sintonia con il tuo brand reale.</p>
+                    </div>
+                    
+                    <div class="fade delay-2">
+                        <div class="text-7xl mb-6 inline-block text-primary font-extrabold">🤝</div>
+                        <h4 class="text-3xl font-bold mb-4">Fase 2: Intervista Clienti</h4>
+                        <p class="opacity-80">Parlo con il tuo staff e, se possibile, con i clienti per capire quali informazioni cercano e come vivono l'esperienza in loco.</p>
+                    </div>
+                    
+                    <div class="fade delay-3">
+                        <div class="text-7xl mb-6 inline-block text-primary font-extrabold">📐</div>
+                        <h4 class="text-3xl font-bold mb-4">Fase 3: Mappatura Digitale</h4>
+                        <p class="opacity-80">Trasformo i dati raccolti (menu, orari, galleria foto, processo di prenotazione) in una <strong>struttura di navigazione logica</strong> per il tuo sito.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-20">
+                    <a href="#contatti" class="inline-block bg-primary hover:bg-primary-dark text-white px-12 py-5 rounded-full shadow-lg text-lg font-semibold transition-all transform hover:scale-105">
+                        Prenota una Consulenza con Sopralluogo
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech-stack" class="py-24 bg-gray-100 text-secondary fade">
+            <div class="container mx-auto px-6 lg:px-16 text-center">
+                <h3 class="text-5xl font-extrabold mb-16">Il Mio Stack Tecnologico 🛠️</h3>
+                <p class="text-xl max-w-3xl mx-auto mb-12 text-gray-700">Strumenti e tecnologie che uso per garantire performance, velocità e design all'avanguardia.</p>
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20">
+                    <div class="fade delay-1">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" class="w-16 h-16 grayscale hover:grayscale-0 transition duration-300">
+                        <p class="mt-2 text-sm text-gray-600">Tailwind CSS</p>
+                    </div>
+                    <div class="fade delay-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-original.svg" alt="WordPress" class="w-16 h-16 grayscale hover:grayscale-0 transition duration-300">
+                        <p class="mt-2 text-sm text-gray-600">WordPress/WC</p>
+                    </div>
+                    <div class="fade delay-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="w-16 h-16 grayscale hover:grayscale-0 transition duration-300">
+                        <p class="mt-2 text-sm text-gray-600">JavaScript</p>
+                    </div>
+                    <div class="fade delay-4">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" class="w-16 h-16 grayscale hover:grayscale-0 transition duration-300">
+                        <p class="mt-2 text-sm text-gray-600">Figma (UX/UI)</p>
+                    </div>
+                    <div class="fade delay-5">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlesearchconsole/googlesearchconsole-original.svg" alt="SEO" class="w-16 h-16 grayscale hover:grayscale-0 transition duration-300">
+                        <p class="mt-2 text-sm text-gray-600">SEO/Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white fade" id="stats-section">
+            <div class="container mx-auto px-6 lg:px-16 text-center">
+                <h3 class="text-5xl font-extrabold mb-16 text-secondary">I Numeri Parlano Chiaro 🎯</h3>
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="rounded-3xl p-10 fade delay-1">
+                        <h4 class="text-6xl font-black text-primary mb-2 stats-number" data-target="47" data-prefix="+" data-suffix="%">0</h4>
+                        <p class="text-gray-700 text-xl font-medium">Aumento medio delle conversioni.</p>
+                    </div>
+                    <div class="rounded-3xl p-10 fade delay-2">
+                        <h4 class="text-6xl font-black text-primary mb-2 stats-number" data-target="100" data-prefix="" data-suffix="+">0</h4>
+                        <p class="text-gray-700 text-xl font-medium">Progetti di successo realizzati.</p>
+                    </div>
+                    <div class="rounded-3xl p-10 fade delay-3">
+                        <h4 class="text-6xl font-black text-primary mb-2 stats-number" data-target="99" data-prefix="" data-suffix="%">0</h4>
+                        <p class="text-gray-700 text-xl font-medium">Tasso di rinnovo del servizio dai clienti.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="obiettivi" class="py-32 bg-gray-100 fade">
+            <div class="container mx-auto px-6 lg:px-16">
+                <h3 class="text-5xl font-extrabold mb-8 text-center text-secondary">Risultati: Trasformiamo le Sfide in Successi 🏆</h3>
+                <p class="text-xl text-center max-w-4xl mx-auto mb-20 text-gray-700">Non creo solo siti. Creo soluzioni strategiche focalizzate su crescita e disintermediazione, supportate da dati concreti nel settore Ho.Re.Ca. e oltre.</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border-b-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-1 fade delay-1 card-glow">
+                        <h4 class="text-3xl font-bold text-secondary flex items-center mb-4">
+                            🍕 Ristoranti & Delivery
+                        </h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="font-bold text-primary">Aumento del Delivery Proprietario</li>
+                            <p class="text-sm ml-4 mb-2">Piattaforme e-commerce che riducono le commissioni esterne e incrementano i margini di guadagno (fino al <strong>+65%</strong>).</p>
+                            
+                            <li class="font-bold text-primary">Ottimizzazione del Menu Digitale</li>
+                            <p class="text-sm ml-4">Miglioramento dell'esperienza utente mobile per ridurre i tassi di abbandono del 20% in fase d'ordine.</p>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border-b-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-1 fade delay-2 card-glow">
+                        <h4 class="text-3xl font-bold text-secondary flex items-center mb-4">
+                            🏨 Hotel & Resort
+                        </h4>
+                         <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="font-bold text-primary">Disintermediazione (Booking Engine)</li>
+                            <p class="text-sm ml-4 mb-2">Implementazione di booking engine proprietari che portano le prenotazioni dirette sopra il <strong>30%</strong> del totale.</p>
+                            
+                            <li class="font-bold text-primary">Esperienza Mobile Vetrina</li>
+                            <p class="text-sm ml-4">Siti multilingua e gallerie fotografiche velocissime, essenziali per la clientela in viaggio e la conversione diretta.</p>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border-b-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-1 fade delay-3 card-glow">
+                        <h4 class="text-3xl font-bold text-secondary flex items-center mb-4">
+                            ☕ Bar & Eventi
+                        </h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="font-bold text-primary">Gestione Eventi & Prenotazioni</li>
+                            <p class="text-sm ml-4 mb-2">Sistemi di prenotazione per eventi e tavoli che hanno incrementato la partecipazione agli eventi speciali (fino al <strong>+40%</strong>).</p>
+                            
+                            <li class="font-bold text-primary">Immagine e Branding Coerente</li>
+                            <p class="text-sm ml-4">Trasposizione digitale dell'atmosfera del locale (luci, colori, mood) per generare fiducia prima dell'arrivo.</p>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border-b-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-1 fade delay-4 card-glow">
+                        <h4 class="text-3xl font-bold text-secondary flex items-center mb-4">
+                            ✈️ Agenzie di Viaggio
+                        </h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="font-bold text-primary">Promozione Pacchetti Efficace</li>
+                            <p class="text-sm ml-4 mb-2">Layout visivi dinamici per mostrare al meglio le destinazioni e stimolare la vendita immediata.</p>
+                            
+                            <li class="font-bold text-primary">Integrazione Gestionali</li>
+                            <p class="text-sm ml-4">Collegamento al gestionale per la verifica real-time della disponibilità e la prenotazione diretta dei tour.</p>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border-b-8 border-primary hover:shadow-2xl transition transform hover:-translate-y-1 fade delay-5 card-glow">
+                        <h4 class="text-3xl font-bold text-secondary flex items-center mb-4">
+                            💼 Studi Professionali (B2B)
+                        </h4>
+                        <ul class="list-disc list-inside space-y-3 text-gray-700">
+                            <li class="font-bold text-primary">Lead Generation Qualificata</li>
+                            <p class="text-sm ml-4 mb-2">Formulari mirati e landing page per attrarre contatti qualificati e potenziali clienti B2B.</p>
+                            
+                            <li class="font-bold text-primary">Credibilità e Autorevolezza</li>
+                            <p class="text-sm ml-4">Design istituzionale, ma moderno, che riflette l'alta professionalità dello studio e rafforza la fiducia.</p>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="py-28 bg-white fade">
+            <div class="container mx-auto px-6 lg:px-16 text-center">
+                <h3 class="text-5xl font-extrabold mb-16 text-secondary">Clienti Entusiasti 💖</h3>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-gray-100 rounded-3xl shadow-xl p-8 fade transform hover:-translate-y-1 transition duration-500 card-glow">
+                        <p class="text-gray-700 italic text-lg leading-relaxed">"Salvatore ha creato un sito per il mio bar che ha attratto molti più clienti. Il design è fresco e le funzionalità perfette!"</p>
+                        <p class="mt-6 font-black text-xl text-primary">— Alessia V., Proprietaria "The Urban Blend"</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-3xl shadow-xl p-8 fade transform hover:-translate-y-1 transition duration-500 card-glow">
+                        <p class="text-gray-700 italic text-lg leading-relaxed">"Il nuovo sito del mio ristorante è un successo! Le prenotazioni online sono triplicate e il sistema di delivery funziona alla grande."</p>
+                        <p class="mt-6 font-black text-xl text-primary">— Giovanni F., Chef "Sapori Antichi"</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-3xl shadow-xl p-8 fade transform hover:-translate-y-1 transition duration-500 card-glow">
+                        <p class="text-gray-700 italic text-lg leading-relaxed">"Il sito del nostro resort è ora all'avanguardia. Il sistema di prenotazione è intuitivo e le foto parlano da sole. Un lavoro eccezionale."</p>
+                        <p class="mt-6 font-black text-xl text-primary">— Elena S., Manager "Vista Mare Resort"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-32 bg-primary text-white text-center fade">
+            <div class="container mx-auto px-6 lg:px-16">
+                <h3 class="text-5xl md:text-6xl font-black mb-8">Pronto a svoltare il tuo business online?</h3>
+                <p class="text-xl mb-12 max-w-3xl mx-auto font-light">Contattami oggi stesso per una consulenza gratuita e scopri come possiamo realizzare un sito che superi le tue aspettative.</p>
+                <a href="#contatti" class="inline-block bg-white text-primary font-bold px-16 py-6 rounded-full shadow-2xl transition-all transform hover:scale-105 hover:shadow-xl text-xl uppercase tracking-wider">
+                    Iniziamo Oggi
+                </a>
+            </div>
+        </section>
+
+        <section id="contatti" class="py-32 bg-secondary text-white fade relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10" style="background-image: url('https://images.unsplash.com/photo-1488998467797-cac536c6499e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;"></div>
+            <div class="container mx-auto px-6 lg:px-16 max-w-4xl relative z-10 text-center">
+                <h3 class="text-5xl font-extrabold mb-12 animate-pulse">Hai un'idea? Parliamone! 💡</h3>
+                <p class="text-xl mb-10 max-w-2xl mx-auto font-light">
+                    Il mio metodo inizia con un'analisi in loco. Inserisci i tuoi dati e l'indirizzo per procedere alla verifica del sopralluogo gratuito.
+                </p>
+
+                <div class="bg-white p-10 rounded-3xl shadow-2xl fade border-t-8 border-primary mb-12 text-secondary">
+                    <h4 class="text-3xl font-bold mb-6 text-secondary flex items-center justify-center">
+                        <svg class="w-8 h-8 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        Dettagli Sopralluogo
+                    </h4>
+                    
+                    <form action="https://formspree.io/f/myzrjkql" method="POST" class="space-y-4">
+                        
+                        <input type="email" name="email" id="email" placeholder="La tua migliore Email (fondamentale)" required class="w-full p-4 border border-gray-300 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary transition text-lg">
+                        
+                        <select name="tipo_attivita" id="tipo_attivita" required class="w-full p-4 border border-gray-300 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary transition text-lg appearance-none bg-white">
+                            <option value="" disabled selected>— Seleziona il tipo di Attività —</option>
+                            <option value="Ristorante">Ristorante</option>
+                            <option value="Bar/Caffetteria">Bar / Caffetteria</option>
+                            <option value="Hotel/B&B/Resort">Hotel / B&B / Resort</option>
+                            <option value="Agenzia_Viaggi">Agenzia di Viaggi / Tour Operator</option>
+                            <option value="Studio_Professionale">Studio Professionale / B2B</option>
+                            <option value="Altro_Generico">Altro (Generico)</option>
+                        </select>
+
+                        <input type="text" name="via" id="via" placeholder="Via e numero civico (es. Via Roma 15)" required class="w-full p-4 border border-gray-300 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary transition text-lg">
+                        <div class="flex space-x-4">
+                            <input type="text" name="cap" id="cap" placeholder="CAP (es. 00100)" required class="w-1/3 p-4 border border-gray-300 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary transition text-lg">
+                            <input type="text" name="citta" id="citta" placeholder="Città" required class="w-2/3 p-4 border border-gray-300 rounded-xl focus:border-primary focus:ring-1 focus:ring-primary transition text-lg">
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl transition-all transform hover:scale-[1.01] mt-4 text-xl font-bold uppercase shadow-md">
+                            Conferma e Invia Richiesta Sopralluogo
+                        </button>
+                    </form>
+                </div>
+
+                <div class="bg-white p-12 rounded-3xl shadow-2xl fade border-t-8 border-primary text-secondary">
+                    <h4 class="text-3xl font-bold mb-8 text-secondary">Contatti Diretti</h4>
+                    <p class="mb-4 text-xl flex items-center justify-center font-bold">
+                        <svg class="w-6 h-6 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+                        Salvatore Piccolo
+                    </p>
+                    <p class="mb-4 text-xl flex items-center justify-center font-bold">
+                        <svg class="w-6 h-6 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                        +39 349 635 2841
+                    </p>
+                    <p class="mb-6 text-xl flex items-center justify-center font-bold">
+                        <svg class="w-6 h-6 mr-3 text-primary" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                        salvatore.piccolo@email.com
+                    </p>
+                    <p class="text-sm text-gray-500 mt-4">Risposta garantita entro 24 ore lavorative.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="bg-secondary text-white py-8">
+            <div class="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p class="mb-4 md:mb-0 text-center md:text-left">
+                    © 2025 – Realizzato con passione da <strong>Salvatore Piccolo</strong> • Web Designer
+                </p>
+
+                <div class="space-x-4 text-center md:text-right">
+                    <a href="privacy.html" class="hover:text-primary transition duration-300 underline">Privacy Policy</a>
+                    <a href="note-legali.html" class="hover:text-primary transition duration-300 underline">Note Legali</a>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+    
+    <script>
+        // Funzione per mostrare la pagina del progetto e nascondere la pagina principale (Mantieni il placeholder)
+        function showProject(pageId, title) {
+            document.getElementById('main-site').classList.remove('active');
+            document.getElementById('header').style.display = 'none';
+            document.title = title;
+            window.scrollTo(0, 0);
+        }
+
+        // Funzione per nascondere la pagina del progetto e mostrare la pagina principale
+        function hideProject(pageId) {
+            document.getElementById('main-site').classList.add('active');
+            document.getElementById('header').style.display = 'flex';
+            document.title = "Salvatore Piccolo – Web Designer";
+            window.scrollTo(0, 0);
+        }
+
+        // HEADER dinamico
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 20) header.classList.add("shadow-xl","bg-white/90");
+            else header.classList.remove("shadow-xl","bg-white/70");
+        });
+
+        // ANIMAZIONE DIGITAZIONE (Modificate le parole per l'Ho.Re.Ca.)
+        const words = ["Massimizza le Prenotazioni","Crea Esperienze Digitali","Aumenta il Delivery","Web Design su Misura"];
+        let i = 0;
+        const typingElement = document.getElementById("typing");
+        function type(){ 
+            typingElement.textContent = words[i]; 
+            i=(i+1)%words.length; 
+        }
+        setInterval(type, 2500); 
+        type();
+        
+        // FUNZIONE COUNTING UP (STATISTICHE)
+        const statsSection = document.getElementById('stats-section');
+        let statsAnimated = false;
+
+        function animateStats(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    const numbers = document.querySelectorAll('.stats-number');
+                    numbers.forEach(number => {
+                        const target = parseInt(number.getAttribute('data-target'));
+                        const prefix = number.getAttribute('data-prefix') || '';
+                        const suffix = number.getAttribute('data-suffix') || '';
+                        let current = 0;
+                        const duration = 1500; // 1.5 secondi
+                        const step = target / (duration / 10);
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            number.textContent = prefix + Math.floor(current) + suffix;
+                        }, 10);
+                    });
+                    statsAnimated = true;
+                }
+            });
+        }
+        
+        // SCROLL REVEAL (funzione fade-in con Intersection Observer)
+        const elements = document.querySelectorAll('.fade');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { 
+                if(entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        elements.forEach(el => revealObserver.observe(el));
+        
+        // Observer per l'animazione delle statistiche
+        const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
+        statsObserver.observe(statsSection);
+    </script>
+</body>
+</html>
